@@ -1,11 +1,9 @@
 const getData = async (url) => {
-console.log('getdata!');
-    const data = await fetch(url).catch((err)=>console.log(err))
+  const data = await fetch(url).catch((err) => console.log(err));
 
-    if (data) {
+  if (data) {
     return data.json();
-    }
-    return data;
-
-}
+  }
+  return data;
+};
 export default getData;
