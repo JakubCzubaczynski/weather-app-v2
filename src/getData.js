@@ -4,6 +4,6 @@ const getData = async (url) => {
   if (data) {
     return data.json();
   }
-  return data;
+  return data.json();
 };
 export default getData;

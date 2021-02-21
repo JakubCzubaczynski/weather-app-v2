@@ -53,6 +53,11 @@ const displayForecast = async () => {
       })
     ),
   ];
+
+  document.querySelector(
+    '.unikalne'
+  ).innerHTML += `<h1>dzien:${data.list[0].day}</h1>`;
+
   console.log(uniqueDays);
   data.list.map((item) => {
     document.querySelector(
