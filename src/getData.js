@@ -1,6 +1,7 @@
 const getData = async (url) => {
   const data = await fetch(url, {
-    method: 'post',
+    method: 'POST',
+
     mode: 'cors',
   }).catch((err) => console.log(err));
 
