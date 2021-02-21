@@ -15,9 +15,9 @@ const initialize = async (city) => {
     alert('City not found!');
     throw new Error('City not found');
   } else {
-    displayWeather(weatherData);
-    displayForecast(forecastData);
-    searchUtils();
+    await displayWeather(weatherData);
+    await displayForecast(forecastData);
+    await searchUtils();
   }
 };
 

@@ -95,7 +95,7 @@ const displayForecast = (data) => {
             <p>${Math.round(item.min)}&deg;C</p>
         </div>`;
   });
-  console.log(data.list);
+  console.log(data);
 
   const daysLabel = [...document.querySelectorAll('[data-name]')];
   daysLabel.map((item, index) => {
