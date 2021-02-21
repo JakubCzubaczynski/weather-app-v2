@@ -85,7 +85,9 @@ const displayForecast = (data) => {
     return item;
   });
   daysMinMax.map((item) => {
-    document.querySelector('.unikalne-2').innerHTML += `<h3>${item.min}</h3>`;
+    document.querySelector(
+      '.unikalne-2'
+    ).innerHTML += `<h3>lol${item.min}</h3>`;
   });
   const weekdayLabel = getElement('.weekday-label');
   weekdayLabel.innerHTML = '';
