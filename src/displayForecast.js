@@ -62,23 +62,23 @@ const displayForecast = (data) => {
   const daysMinMax = temp.map((item) => {
     let i = 0;
     let j = 0;
-    data.list.filter((data) => {
-      if (data.day === item.name && i == 0) {
-        item.icon = data.weather[0].icon;
-        item.min = data.main.temp_min;
-        item.max = data.main.temp_max;
+    data.list.filter((data1) => {
+      if (data1.day === item.name && i == 0) {
+        item.icon = data1.weather[0].icon;
+        item.min = data1.main.temp_min;
+        item.max = data1.main.temp_max;
         i++;
-      } else if (data.day === item.name && i > 0) {
+      } else if (data1.day === item.name && i > 0) {
         j++;
-        if (item.min > data.main.temp_min) item.min = data.main.temp_min;
-        if (item.max < data.main.temp_max) item.max = data.main.temp_max;
+        if (item.min > data1.main.temp_min) item.min = data1.main.temp_min;
+        if (item.max < data1.main.temp_max) item.max = data1.main.temp_max;
         if (j > 3 && j < 6) {
-          item.icon = data.weather[0].icon;
+          item.icon = data1.weather[0].icon;
           console.log(item.icon);
         }
       }
 
-      return data;
+      return data1;
     });
 
     return item;
@@ -97,7 +97,7 @@ const displayForecast = (data) => {
   });
   console.log(data);
   console.log(data.list);
-
+  console.log(daysMinMax);
   const daysLabel = [...document.querySelectorAll('[data-name]')];
   daysLabel.map((item, index) => {
     if (index === 0) {
