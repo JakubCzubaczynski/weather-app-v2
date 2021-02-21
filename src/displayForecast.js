@@ -1,7 +1,13 @@
 import getElement from './getElement.js';
+import getData from './getData.js';
 import { addActive, removeActive } from './utils.js';
 import displayForecastDetails from './displayForecastDetails.js';
-const displayForecast = (data) => {
+const displayForecast = async () => {
+  const city = 'warsaw';
+  const key = 'e520e248b2ce5d233b45cf74840ed29c';
+  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
+
+  const data = await getData(url);
   console.log('display forecast!');
   let dayName = [];
   const response = data.list.map((item) => {

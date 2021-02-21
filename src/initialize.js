@@ -11,12 +11,13 @@ const initialize = async (city) => {
 
   const weatherData = await getData(weather);
   const forecastData = await getData(forecast);
+
   if (weatherData.cod === '404' || forecastData.cod === '404') {
     alert('City not found!');
     throw new Error('City not found');
   } else {
     await displayWeather(weatherData);
-    await displayForecast(forecastData);
+    await displayForecast();
     await searchUtils();
   }
 };
