@@ -89,7 +89,7 @@ const displayForecast = (data) => {
   daysMinMax.map((item) => {
     getElement('.weekday-label').innerHTML += `
         <div class="col-2 weekday-wrapper py-3" data-name="${item.name}">
-            <p>${item.name.substring(0, 3)}</p>
+            <p>${item.name}</p>
             <img src="./images/icons/${item.icon}.png" class="label-img" alt="">
             <p>${Math.round(item.max)}&deg;C</p>
             <p>${Math.round(item.min)}&deg;C</p>
