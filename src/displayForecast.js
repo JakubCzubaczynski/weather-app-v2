@@ -1,13 +1,7 @@
 import getElement from './getElement.js';
-import getData from './getData.js';
 import { addActive, removeActive } from './utils.js';
 import displayForecastDetails from './displayForecastDetails.js';
-const displayForecast = async () => {
-  const city = 'warsaw';
-  const key = 'e520e248b2ce5d233b45cf74840ed29c';
-  const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
-
-  const data = await getData(url);
+const displayForecast = (data) => {
   console.log('display forecast!');
   let dayName = [];
   const response = data.list.map((item) => {
@@ -53,24 +47,8 @@ const displayForecast = async () => {
       })
     ),
   ];
-
-  document.querySelector(
-    '.unikalne'
-  ).innerHTML += `<h1>dzien:${data.list[0].day}</h1>`;
-
   console.log(uniqueDays);
-  data.list.map((item) => {
-    document.querySelector(
-      '.unikalne'
-    ).innerHTML += `<h3>dzien:${item.day}</h3>`;
-    return item.day;
-  });
-  // console.log(alldays);
-  // const unikalne = [...new Set(alldays)];
-  // console.log(unikalne);
-  // unikalne.map((item) => {
-  //   document.querySelector('.unikalne-2').innerHTML += `<h3>${item}</h3>`;
-  // });
+
   //temporary function - creating blank object - min-max temp day by day;
   const temp = uniqueDays.map((item) => {
     return {
@@ -80,9 +58,7 @@ const displayForecast = async () => {
       icon: null,
     };
   });
-  temp.map((item) => {
-    document.querySelector('.unikalne-2').innerHTML += `<h3>${item.min}</h3>`;
-  });
+
   //Filling object with data
   const daysMinMax = temp.map((item) => {
     let i = 0;
@@ -108,9 +84,9 @@ const displayForecast = async () => {
 
     return item;
   });
-  // daysMinMax.map((item) => {
-  //   document.querySelector('.unikalne-2').innerHTML += `<h3>${item.min}</h3>`;
-  // });
+  daysMinMax.map((item) => {
+    document.querySelector('.unikalne-2').innerHTML += `<h3>${item.min}</h3>`;
+  });
   const weekdayLabel = getElement('.weekday-label');
   weekdayLabel.innerHTML = '';
   daysMinMax.map((item) => {
