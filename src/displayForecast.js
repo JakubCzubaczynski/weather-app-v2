@@ -96,6 +96,7 @@ const displayForecast = (data) => {
         </div>`;
   });
   console.log(data);
+  console.log(data.list);
 
   const daysLabel = [...document.querySelectorAll('[data-name]')];
   daysLabel.map((item, index) => {
