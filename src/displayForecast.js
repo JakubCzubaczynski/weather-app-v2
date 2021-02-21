@@ -47,7 +47,9 @@ const displayForecast = (data) => {
       })
     ),
   ];
-
+  uniqueDays.map((item) => {
+    document.querySelector('.unikalne').innerHTML += `<h3>${item}</h3>`;
+  });
   //temporary function - creating blank object - min-max temp day by day;
   const temp = uniqueDays.map((item) => {
     return {
@@ -57,7 +59,9 @@ const displayForecast = (data) => {
       icon: null,
     };
   });
-
+  temp.map((item) => {
+    document.querySelector('.unikalne-2').innerHTML += `<h3>${item.min}</h3>`;
+  });
   //Filling object with data
   const daysMinMax = temp.map((item) => {
     let i = 0;
@@ -83,7 +87,9 @@ const displayForecast = (data) => {
 
     return item;
   });
-
+  daysMinMax.map((item) => {
+    document.querySelector('.unikalne-2').innerHTML += `<h3>${item.min}</h3>`;
+  });
   const weekdayLabel = getElement('.weekday-label');
   weekdayLabel.innerHTML = '';
   daysMinMax.map((item) => {
