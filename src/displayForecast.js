@@ -1,23 +1,8 @@
 import getElement from './getElement.js';
 import { addActive, removeActive } from './utils.js';
 import displayForecastDetails from './displayForecastDetails.js';
-const displayForecast = (data) => {
-  $.ajax({
-    url: `https://api.openweathermap.org/data/2.5/forecast?q=poznan&appid=e520e248b2ce5d233b45cf74840ed29c&units=metric`,
-    success: function (response) {
-      console.log(response);
-      console.log('dziala ajax');
-      response.list.map((item) => {
-        document.querySelector(
-          '.unikalne-2'
-        ).innerHTML += `<h3>${item.dt_txt}</h3>`;
-      });
-    },
-    error: function () {
-      console.log('Wystąpił błąd z połączeniem');
-    },
-  });
 
+const displayForecast = async (data) => {
   console.log('display forecast!');
   let dayName = [];
   const response = data.list.map((item) => {

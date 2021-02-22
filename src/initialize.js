@@ -1,4 +1,5 @@
 import getData from './getData.js';
+import getAjax from './getAjax.js';
 import displayWeather from './displayWeather.js';
 import displayForecast from './displayForecast.js';
 import searchUtils from './searchUtils.js';
@@ -10,7 +11,7 @@ const initialize = async (city) => {
   const forecast = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}&units=metric`;
 
   const weatherData = await getData(weather);
-  const forecastData = await getData(forecast);
+  const forecastData = await getAjax(forecast);
 
   if (weatherData.cod === '404' || forecastData.cod === '404') {
     alert('City not found!');
