@@ -53,7 +53,12 @@ const displayForecast = async (data) => {
     ),
   ];
   console.log(uniqueDays);
-
+  response.map((item) => {
+    document.querySelector('.unikalne').innerHTML += `<h3>${item.day}</h3>`;
+  });
+  uniqueDays.map((item) => {
+    document.querySelector('.unikalne').innerHTML += `<h3>${item}</h3>`;
+  });
   //temporary function - creating blank object - min-max temp day by day;
   const temp = uniqueDays.map((item) => {
     return {
