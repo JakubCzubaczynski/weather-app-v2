@@ -5,6 +5,7 @@ import displayForecastDetails from './displayForecastDetails.js';
 const displayForecast = async (data) => {
   console.log('display forecast!');
   let dayName = [];
+  document.querySelector('.unikalne').innerHTML += 'hej';
   data.list.map((item) => {
     document.querySelector('.unikalne').innerHTML += `<h3>${item.dt_txt}</h3>`;
   });
