@@ -52,8 +52,8 @@ const displayForecast = async (data) => {
       })
     ),
   ];
-  console.log(uniqueDays);
-  data.list.map((item) => {
+  console.log(response);
+  response.map((item) => {
     document.querySelector('.unikalne').innerHTML += `<h3>${item.day}</h3>`;
   });
   uniqueDays.map((item) => {
