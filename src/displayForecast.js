@@ -11,12 +11,8 @@ const displayForecast = async (data) => {
   });
   const response = data.list.map((item) => {
     const date = item.dt_txt;
-
     const newDate = new Date(date.replace(/-/g, '/'));
 
-    document.querySelector('.unikalne').innerHTML += `<h3>${newDate}</h3>`;
-
-    console.log(newDate);
     const weekday = newDate.getDay();
     const hours = newDate.getHours();
     const day = newDate.getDate();
@@ -56,11 +52,7 @@ const displayForecast = async (data) => {
       })
     ),
   ];
-  console.log(response);
 
-  uniqueDays.map((item) => {
-    document.querySelector('.unikalne').innerHTML += `<h3>${item}</h3>`;
-  });
   //temporary function - creating blank object - min-max temp day by day;
   const temp = uniqueDays.map((item) => {
     return {
@@ -101,8 +93,10 @@ const displayForecast = async (data) => {
   weekdayLabel.innerHTML = '';
   daysMinMax.map((item) => {
     getElement('.weekday-label').innerHTML += `
-        <div class="col-2 weekday-wrapper py-3" data-name="${item.name}">
-            <p>${item.name}</p>
+        <div class="col-2 weekday-wrapper py-2 py-sm-3" data-name="${
+          item.name
+        }">
+            <p>${item.name.slice(0, 3)}</p>
             <img src="./images/icons/${item.icon}.png" class="label-img" alt="">
             <p>${Math.round(item.max)}&deg;C</p>
             <p>${Math.round(item.min)}&deg;C</p>

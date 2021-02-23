@@ -19,9 +19,7 @@ $light: #e6e6e6;
     justify-content: center;
 
     align-items: center;
-i{
-    margin-right:10px;
-}
+
 
     .main-wrapper {
         margin: 20px;
@@ -32,11 +30,12 @@ i{
         border-radius: $radius;
 
         .forecast-details {
-            padding-top: 40px;
-            padding-bottom: 50px;
+            padding:2rem 0;
             background: #0d004045;
             text-align: center;
-
+            @media (max-width: 576px) {
+                padding:0.5rem 0;
+            }
             p {
                 margin: 0;
             }
@@ -44,27 +43,35 @@ i{
             .forecast-item {
                 width: 12.5%;
                 animation: fadein 1s;
-
+padding:2px;
                 .forecast-temp {
                     font-size: 1.3rem;
                      @media (max-width: 576px) {
-                         font-size: 0.9rem;
+                         font-size: 0.85rem;
+                         letter-spacing: 0;
                      }
                 }
 
                 .forecast-wind {
                     font-size: 0.9rem;
-                    
+                    @media (max-width: 576px) {
+                        font-size: 0.8rem;
+                        letter-spacing: 0;
+                    }
                 }
 
                 .forecast-img {
                     width: 50%;
                     display: block;
                     margin: 0 auto;
+                     @media (max-width: 576px) {
+                        width:80%;
+                     }
                 }
                 .forecast-hour{
                      @media (max-width: 576px) {
-                         font-size: 0.8rem;
+                         font-size: 0.7rem;
+                         letter-spacing:0;
                      }
                 }
             
@@ -83,12 +90,17 @@ i{
             }
 
             .label-img {
-                width: 100%;
+                width: 70%;
             }
 
             .weekday-wrapper {
                 border-top-left-radius: $radius;
                 border-top-right-radius: $radius;
+                 @media (max-width: 576px) {
+                   padding-left:0;
+                   padding-right:0;
+                 }
+                
                 &:hover {
                     cursor: pointer;
 
@@ -106,10 +118,19 @@ i{
             font-weight: 500;
             display:flex;
             justify-content: space-between;
+           
              @media (max-width: 576px) {
                  display:block;
+                 padding:20px 10px 0 10px;
+                
+             }
+             .location-container {
+                 order: 1;
+                 margin-top:0.2rem;
+
              }
              .form-container{
+                 order:2;
                  display:flex;
                  justify-content: center;
                  
@@ -117,13 +138,18 @@ i{
             .search-form{
                 
                 margin-right:30px;
+                @media (max-width: 576px) {
+                    margin-right:0;
+                    width:100%;
+                }
                 .submit{
                     letter-spacing: $spacing;
                     border-radius: $radius;
                     padding:5px 10px;
                     border-width: 0;
                     height:2rem;
-                    width:50px;
+                    margin-bottom:2px;
+                    width:40px;
                 }
                 input{
                     letter-spacing: $spacing;
@@ -142,6 +168,11 @@ i{
                         outline: none;
                         
                     }
+                    @media (max-width: 576px) {
+                        min-width: unset;
+                        width: calc(100% - 50px);
+
+                    }
                 }
             }
             .span-city {
@@ -159,28 +190,28 @@ i{
 
         .weather-wrapper {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
 
             .temp-wrapper {
                 font-size: 5rem;
                 @media (max-width: 750px) {
-                    font-size:2rem;
+                    font-size:4rem;
                     display:flex;
                     align-items: center;
                 }
                  @media (max-width: 576px) {
-                     font-size: 5rem;
+                     font-size: 3rem;
                  }
             }
 
             .deg-wrapper {
                 font-size: 2rem;
-                padding-top: 10px;
+                padding-top: 20px;
                 margin-left: 5px;
                 @media (max-width: 750px) {
                     
                     display: flex;
-                    align-items: center;
+                    align-items: flex-start;
                 }
             }
         }
@@ -191,6 +222,7 @@ i{
                 align-items: center;
                  @media (max-width: 576px) {
                      justify-content: flex-start;
+
                  }
             .main-img {
                 width: 100px;
@@ -198,13 +230,13 @@ i{
                     width:100%;
                  }
                   @media (max-width: 576px) {
-                      width: 100px;
+                      width: 70px;
                   }
             }
         }
 
         .details-wrapper {
-            padding: 15px;
+            padding-bottom: 15px;
 
             .description {
                 width: 90%;
