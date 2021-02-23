@@ -12,7 +12,7 @@ const displayForecast = async (data) => {
   const response = data.list.map((item) => {
     const date = item.dt_txt;
 
-    const newDate = new Date(date);
+    const newDate = new Date(date.replace(/-/g, '/'));
 
     document.querySelector('.unikalne').innerHTML += `<h3>${newDate}</h3>`;
 
