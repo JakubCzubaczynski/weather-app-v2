@@ -11,8 +11,12 @@ const displayForecast = async (data) => {
   });
   const response = data.list.map((item) => {
     const date = item.dt_txt;
+
     const newDate = new Date(date);
 
+    document.querySelector('.unikalne').innerHTML += `<h3>${newDate}</h3>`;
+
+    console.log(newDate);
     const weekday = newDate.getDay();
     const hours = newDate.getHours();
     const day = newDate.getDate();
@@ -53,9 +57,7 @@ const displayForecast = async (data) => {
     ),
   ];
   console.log(response);
-  response.map((item) => {
-    document.querySelector('.unikalne').innerHTML += `<h3>${item.day}</h3>`;
-  });
+
   uniqueDays.map((item) => {
     document.querySelector('.unikalne').innerHTML += `<h3>${item}</h3>`;
   });
